@@ -1,0 +1,252 @@
+/* Video Container Styles */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+}
+
+/* VHS Overlay Effects */
+.vhs-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 51%
+    );
+    background-size: 100% 3px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/noise.png');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 99;
+}
+
+/* Video Header and Footer */
+.video-header,
+.video-footer {
+    padding: 0.5rem 1rem;
+    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #0f0;
+    text-transform: uppercase;
+}
+
+.recording-status {
+    color: #f00;
+    animation: blink 1s infinite;
+}
+
+/* Video Content */
+.video-content {
+    position: relative;
+    padding: 2rem;
+    background: #111;
+    min-height: 400px;
+}
+
+.static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/static.gif');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* Message Transcript */
+.message-transcript {
+    position: relative;
+    z-index: 1;
+}
+
+.interference-text {
+    color: #0f0;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.message-content {
+    line-height: 1.6;
+}
+
+.speaker {
+    color: #f00;
+    margin-bottom: 1rem;
+}
+
+.dialogue {
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.3);
+}
+
+/* Hidden Elements */
+.hidden-data,
+.binary-message,
+.morse-overlay,
+.spectrogram-data {
+    display: none;
+}
+
+.glitch-text {
+    color: #f00;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    animation: textGlitch 0.1s infinite;
+}
+
+/* Puzzle Interface */
+.puzzle-interface {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(0, 255, 0, 0.1);
+    border: 1px solid #0f0;
+}
+
+.puzzle-interface.hidden {
+    display: none;
+}
+
+.input-group {
+    margin: 1rem 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #0f0;
+}
+
+.input-group input {
+    background: #000;
+    border: 1px solid #0f0;
+    color: #0f0;
+    padding: 0.5rem;
+    width: 100%;
+    font-family: 'Courier New', monospace;
+}
+
+.input-group button {
+    background: #0f0;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+}
+
+/* Audio Player */
+.spectrogram-player {
+    margin-top: 1rem;
+}
+
+.play-btn {
+    background: none;
+    border: 1px solid #0f0;
+    color: #0f0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.progress-bar {
+    height: 5px;
+    background: #333;
+    margin-top: 0.5rem;
+}
+
+.progress {
+    height: 100%;
+    background: #0f0;
+    width: 0;
+}
+
+/* Animations */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes textGlitch {
+    0% { transform: translate(0); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes glitch {
+    0% {
+        clip-path: inset(50% 0 30% 0);
+        transform: translate(-5px, 5px);
+    }
+    50% {
+        clip-path: inset(40% 0 60% 0);
+        transform: translate(5px, -5px);
+    }
+    100% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translate(0);
+    }
+}
+
+/* Revealed Elements */
+.revealed-clue {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid #f00;
+}
+
+.classified-text {
+    color: #f00;
+    margin-bottom: 0.5rem;
+}
+
+/* Final Warning */
+.final-warning {
+    color: #f00;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    animation: textGlitch 0.2s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .video-container {
+        margin: 1rem;
+    }
+    
+    .video-content {
+        padding: 1rem;
+    }
+    
+    .dialogue {
+        font-size: 0.9rem;
+    }
+} 

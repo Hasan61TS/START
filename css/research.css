@@ -1,0 +1,138 @@
+.terminal {
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    margin: 2rem auto;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--accent-blue);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-code);
+}
+
+.terminal-header {
+    background: var(--accent-blue);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.terminal-content {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--accent-blue);
+    margin-right: 0.5rem;
+}
+
+#terminal-input {
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+    font-family: var(--font-code);
+    font-size: 1rem;
+    flex-grow: 1;
+    caret-color: var(--accent-blue);
+}
+
+#terminal-input:focus {
+    outline: none;
+}
+
+.command-response {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.command-line {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+}
+
+.classified {
+    color: var(--accent-red);
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.classified b {
+    color: var(--accent-red);
+    font-weight: bold;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 2px var(--accent-red),
+                     0 0 4px var(--accent-red);
+    }
+    to {
+        text-shadow: 0 0 4px var(--accent-red),
+                     0 0 8px var(--accent-red),
+                     0 0 12px var(--accent-red);
+    }
+}
+
+/* Add transition effects */
+.terminal.corrupted {
+    animation: corrupt 2s forwards;
+}
+
+.transition-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--accent-red);
+    font-family: var(--font-code);
+    font-size: 2rem;
+    text-align: center;
+    z-index: 1000;
+    text-shadow: 0 0 10px var(--accent-red);
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes corrupt {
+    0% {
+        transform: scale(1);
+        filter: none;
+    }
+    20% {
+        transform: scale(1.02) skew(2deg);
+        filter: hue-rotate(90deg);
+    }
+    40% {
+        transform: scale(0.98) skew(-2deg);
+        filter: hue-rotate(180deg);
+    }
+    60% {
+        transform: scale(1.02) skew(2deg);
+        filter: hue-rotate(270deg);
+    }
+    80% {
+        transform: scale(0.98) skew(-2deg);
+        filter: hue-rotate(360deg);
+    }
+    100% {
+        transform: scale(1.1);
+        filter: brightness(2);
+        opacity: 0;
+    }
+} 

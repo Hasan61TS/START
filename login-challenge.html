@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Verification - Project Sunfall</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/login-challenge.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="login-challenge.html" class="login-btn glitch active">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="puzzle-container">
+        <!-- Puzzle 1: The Celestial Cipher -->
+        <section class="puzzle active" id="puzzle1">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="The Celestial Cipher">The Celestial Cipher</h2>
+                <p class="puzzle-desc">The moon moves in cycles of three.</p>
+                <div class="cipher-puzzle">
+                    <div class="cipher-text">WKLV LV WKH SDVVZRUG</div>
+                    <div class="cipher-wheel">
+                        <div class="outer-wheel"></div>
+                        <div class="inner-wheel"></div>
+                    </div>
+                    <div class="puzzle-input">
+                        <input type="text" placeholder="Enter solution" id="challenge1-input">
+                        <button onclick="checkChallenge(1)">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puzzle 2: Reflected Truth -->
+        <section class="puzzle" id="puzzle2">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Reflected Truth">Reflected Truth</h2>
+                <p class="puzzle-desc">Look beyond the reflection.</p>
+                <div class="mirror-text">·uoᴉʇoɯ uᴉ suoᴉʇɔǝuuoɔ pǝǝu ǝM</div>
+                <div class="puzzle-input">
+                    <input type="text" placeholder="Enter solution" id="challenge2-input">
+                    <button onclick="checkChallenge(2)">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puzzle 3: Shadow's Equation -->
+        <section class="puzzle" id="puzzle3">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Shadow's Equation">Shadow's Equation</h2>
+                <p class="puzzle-desc">Numbers speak in A1Z26, where 1 begins and 26 ends</p>
+                <div class="equation">(5 + 3) x 2 – 6 = ?</div>
+                <div class="equation">(5 x 3) x 2 – 15 = ?</div>
+                <div class="equation">(5 - 3) x 5 – 1 = ?</div>
+                <div class="equation">(6 / 3) x 9 – 4 = ?</div>
+                <div class="puzzle-input">
+                    <input type="text" placeholder="Enter solution" id="challenge3-input">
+                    <button onclick="checkChallenge(3)">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puzzle 4: Frequency Match -->
+        <section class="puzzle" id="puzzle4">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Frequency Match">Frequency Match</h2>
+                <p class="puzzle-desc">Every frequency speaks a message.</p>
+                <div class="morse-code">.-.. .. --. .... -</div>
+                <div class="puzzle-input">
+                    <input type="text" placeholder="Enter solution" id="challenge4-input">
+                    <button onclick="checkChallenge(4)">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Puzzle 5: Sunfall's Whisper -->
+        <section class="puzzle" id="puzzle5">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Sunfall's Whisper">Sunfall's Whisper</h2>
+                <p class="puzzle-desc">The truth is fragmented, but together it forms a beacon.</p>
+                <div class="fragments-puzzle">
+                    <div class="fragment" draggable="true">
+                        <span>when the <b>P</b>tars align,</span>
+                    </div>
+                    <div class="fragment" draggable="true">
+                        <span>a hi<b>U</b>dden path will</span>
+                    </div>
+                    <div class="fragment" draggable="true">
+                        <span>r<b>E</b>veal itself to those who</span>
+                    </div>
+                    <div class="fragment" draggable="true">
+                        <span>seek the t<b>R</b>uth beneath the l<b>O</b>ight.</span>
+                    </div>
+                </div>
+                <div class="puzzle-input">
+                    <input type="text" placeholder="Enter the hidden message" id="challenge5-input">
+                    <button onclick="checkChallenge(5)">Submit</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/effects.js"></script>
+    <script src="js/login-challenge.js"></script>
+</body>
+</html> 

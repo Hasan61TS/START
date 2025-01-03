@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Sunfall - Research Archives</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/research.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="#" class="active">Archives</a></li>
+        </ul>
+    </nav>
+
+    <main class="terminal">
+        <div class="terminal-header">
+            <span class="title">SUNFALL RESEARCH TERMINAL</span>
+            <span class="status">STATUS: CONNECTED</span>
+        </div>
+
+        <div class="terminal-content">
+            <div class="terminal-output" id="output">
+                Welcome to Project Sunfall Research Archives.
+                Type 'help' for available commands.
+            </div>
+            
+            <div class="terminal-input-line">
+                <span class="prompt">guest@sunfall:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/effects.js"></script>
+    <script>
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('userLoggedIn') !== 'true') {
+                window.location.href = 'login.html';
+                return;
+            }
+            initTerminal();
+        });
+
+        const files = {
+            'readme.txt': {
+                type: 'text',
+                content: `
+                    SUNFALL RESEARCH TERMINAL v2.1
+                    -----------------------------
+                    Project Status: UNSTABLE
+                    WARNING: Unauthorized access detected in radiation containment systems.
+                    Complete system diagnostics required.
+                    
+                    Current Authorization Level: GUEST
+                    Required Level: RESEARCHER
+                    
+                    Note: Run 'diagnose [system]' after solving each system puzzle
+                `
+            },
+            'radiation_filter.dat': {
+                type: 'diagram',
+                locked: true,
+                puzzle: 'PRISM',
+                content: `
+                    Radiation Filtration System
+                    -------------------------
+                    ╔══════════════════════╗
+                    ║    γ                 ║
+                    ║ →→→ [⬡] →→→ [▼]    ║
+                    ║    β                 ║
+                    ║                      ║
+                    ║ FILTER STATUS: ERROR ║
+                    ╚══════════════════════╝
+                    
+                    Notes: Primary <b>P</b>article filter showing unusual readings.
+                    Beta and gamma radiation levels exceeding safe parameters.
+                    
+                    SYSTEM DIAGNOSTIC REQUIRED
+                    ------------------------
+                    Complete sequence: 16-18-9-19-13
+                    (Hint: A1Z26 cipher - What splits light?)
+                `
+            },
+            'containment_field.dat': {
+                type: 'diagram',
+                locked: true,
+                puzzle: 'PLASMA',
+                content: `
+                    Containment Field Generator
+                    -------------------------
+                    ╔══════════════════════╗
+                    ║     ┌─╥─┐           ║
+                    ║  ⚡  │█║█│   ⚡      ║
+                    ║     └─╨─┘           ║
+                    ║ <<< [CORE] >>>      ║
+                    ║ FIELD INTEGRITY: 26% ║
+                    ╚══════════════════════╝
+                    
+                    Notes: <b>P</b>ower fluctuations detected in containment barriers.
+                    Core stability requires fourth state of matter.
+                    
+                    SYSTEM DIAGNOSTIC REQUIRED
+                    ------------------------
+                    What state of matter can contain radiation?
+                    (Hint: Not solid, liquid, or gas)
+                `
+            },
+            'quantum_matrix.dat': {
+                type: 'diagram',
+                locked: true,
+                puzzle: 'PHOTON',
+                content: `
+                    Quantum Matrix Stabilizer
+                    -----------------------
+                    ╔══════════════════════╗
+                    ║    λ↯↯↯λ            ║
+                    ║  ∿∿∿[◊]∿∿∿         ║
+                    ║    λ↯↯↯λ            ║
+                    ║ MATRIX: DESTABILIZED ║
+                    ╚══════════════════════╝
+                    
+                    Notes: Quantum state <b>P</b>articles showing wave-like behavior.
+                    Matrix requires light particle identification.
+                    
+                    SYSTEM DIAGNOSTIC REQUIRED
+                    ------------------------
+                    Identify quantum light particle:
+                    ↯∿λ = ???
+                `
+            },
+            'anomaly.dat': {
+                type: 'classified',
+                locked: true,
+                content: `
+                    [CRITICAL SYSTEM ALERT]
+                    ----------------------
+                    Subject: <b>V</b>oid Formation Detected
+                    Status: <b>G</b>rowth Rate Critical
+                    Warning: <b>d</b>imensional breach
+                    Pattern: <b>H</b>yperspatial anomaly
+                    Action: <b>J</b>unction collapse
+                    Priority: <b>W</b>ARNING
+
+                    [CONTAINMENT BREACH IMMINENT]
+                    [SYSTEM PURGE REQUIRED]
+
+                    [PERSONAL FILES DETECTED]
+                    [DECRYPTING...]
+                    [LOCATION: /home/anya/diary/]
+                `
+            }
+        };
+
+        let solvedPuzzles = new Set();
+
+        function initTerminal() {
+            const input = document.getElementById('terminal-input');
+            const output = document.getElementById('output');
+
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const command = input.value.trim().toLowerCase();
+                    processCommand(command);
+                    input.value = '';
+                }
+            });
+        }
+
+        function processCommand(command) {
+            const output = document.getElementById('output');
+            const response = document.createElement('div');
+            response.className = 'command-response';
+
+            // Show the command
+            const cmdLine = document.createElement('div');
+            cmdLine.className = 'command-line';
+            cmdLine.innerHTML = `<span class="prompt">guest@sunfall:~$</span> ${command}`;
+            output.appendChild(cmdLine);
+
+            // Process command
+            if (command.startsWith('verify ')) {
+                const code = command.substring(7).toUpperCase();
+                handleVerification(code, response);
+            } else {
+                switch(command) {
+                    case 'help':
+                        response.innerHTML = `
+                            Available commands:
+                            - ls: List files
+                            - cat [filename]: View file contents
+                            - clear: Clear terminal
+                            - help: Show this help
+                            - status: Show puzzle progress
+                            - verify [code]: Submit puzzle solution
+                            - whoami: Show current user
+                            - tree: Show file structure
+                        `;
+                        break;
+
+                    case 'ls':
+                        response.innerHTML = Object.keys(files).join('\n');
+                        break;
+
+                    case 'clear':
+                        output.innerHTML = '';
+                        return;
+
+                    case 'status':
+                        response.innerHTML = `
+                            Puzzles solved: ${solvedPuzzles.size}/3
+                            Authorization level: ${solvedPuzzles.size === 3 ? 'RESEARCHER' : 'GUEST'}
+                            Files unlocked: ${solvedPuzzles.size}/3
+                        `;
+                        break;
+
+                    case 'whoami':
+                        response.innerHTML = `guest${solvedPuzzles.size === 3 ? ' (elevated to RESEARCHER)' : ''}`;
+                        break;
+
+                    case 'tree':
+                        response.innerHTML = `
+                            /research
+                            ├── readme.txt
+                            ├── radiation_filter.dat
+                            ├── containment_field.dat
+                            ├── quantum_matrix.dat
+                            └── anomaly.dat [CLASSIFIED]
+                        `;
+                        break;
+
+                    default:
+                        if (command.startsWith('cat ')) {
+                            const filename = command.substring(4);
+                            handleCatCommand(filename, response);
+                        } else {
+                            response.innerHTML = `Unknown command: ${command}`;
+                        }
+                }
+            }
+
+            output.appendChild(response);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        function handleVerification(code, response) {
+            for (const [filename, file] of Object.entries(files)) {
+                if (file.puzzle === code) {
+                    solvedPuzzles.add(filename);
+                    response.innerHTML = `Puzzle solved! File ${filename} unlocked.`;
+                    
+                    if (solvedPuzzles.size === 3) {
+                        response.innerHTML += `\n\nAUTHORIZATION LEVEL UPGRADED TO: RESEARCHER\nanomal.dat now accessible.`;
+                    }
+                    return;
+                }
+            }
+            response.innerHTML = 'Invalid verification code.';
+        }
+
+        function handleCatCommand(filename, response) {
+            if (!files[filename]) {
+                response.innerHTML = `File not found: ${filename}`;
+                return;
+            }
+
+            if (filename === 'anomaly.dat') {
+                if (solvedPuzzles.size < 3) {
+                    response.innerHTML = `
+                        ACCESS DENIED
+                        ------------
+                        Authorization level RESEARCHER required.
+                        Current level: GUEST
+                        Complete all research puzzles to gain access.
+                    `;
+                    response.classList.add('classified');
+                    document.body.classList.add('major-glitch');
+                    setTimeout(() => {
+                        document.body.classList.remove('major-glitch');
+                    }, 1000);
+                    return;
+                }
+            }
+
+            response.innerHTML = files[filename].content;
+            if (files[filename].type === 'classified') {
+                response.classList.add('classified');
+                document.body.classList.add('major-glitch');
+                
+                // Create a dramatic transition effect
+                const terminal = document.querySelector('.terminal');
+                terminal.classList.add('corrupted');
+                
+                // Add typing effect for the transition
+                const transitionText = document.createElement('div');
+                transitionText.className = 'transition-text';
+                document.body.appendChild(transitionText);
+                
+                const messages = [
+                    'ACCESSING PERSONAL FILES...',
+                    'BYPASSING SECURITY...',
+                    'RECONSTRUCTING DATA...',
+                    'DIARY FOUND...'
+                ];
+                
+                let messageIndex = 0;
+                const typeMessage = () => {
+                    if (messageIndex < messages.length) {
+                        transitionText.textContent = messages[messageIndex];
+                        messageIndex++;
+                        setTimeout(typeMessage, 1000);
+                    } else {
+                        // Redirect to diary puzzles after messages
+                        setTimeout(() => {
+                            window.location.href = 'diary-puzzles.html';
+                        }, 1000);
+                    }
+                };
+                
+                setTimeout(typeMessage, 1000);
+            }
+        }
+    </script>
+</body>
+</html> 

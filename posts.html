@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anya's Lab Journal - Posts</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/posts.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+    
+    <main class="container">
+        <header class="glitch-header">
+            <h1 class="glitch" data-text="Lab Records">Lab Records</h1>
+            <p class="subtitle">Classified Information</p>
+        </header>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" class="active">Posts</a></li>
+                <li><a href="#" onclick="resetProgress(event)" class="reset-btn">Reset Progress</a></li>
+            </ul>
+        </nav>
+
+        <section class="posts">
+            <!-- Post 1 -->
+            <article class="post" id="post1">
+                <h2 class="glitch">The Birth of Sunfall</h2>
+                <div class="post-content">
+                    <p>Sunlight is energy, pure and unyielding.</p>
+                    <p>For years, I've wondered: what if we could change it?</p>
+                    <p>Sunfall is the machine I've created to make that possible.</p>
+                    <p>But light is fickle. I've discovered it doesn't like to be tampered with.</p>
+                    <div class="puzzle-section">
+                        <p class="puzzle-text">To proceed, decode this:</p>
+                        <code>b3BlbmluZyBsaWdodCBkb29yLg==</code>
+                        <div class="puzzle-input">
+                            <input type="text" placeholder="Enter solution" id="puzzle1-input">
+                            <button onclick="checkPuzzle(1)">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Post 2 (Initially Locked) -->
+            <article class="post locked" id="post2">
+                <h2 class="glitch">A Brief History of Light</h2>
+                <div class="post-content">
+                    <p>The ancient philosophers believed light was divine.</p>
+                    <p>Now, I see it as malleable.</p>
+                    <p>But every choice has consequences.</p>
+                    <div class="puzzle-section">
+                        <p class="puzzle-text">Decipher this sequence:</p>
+                        <code>3-9-16-8-5-18 </code>
+                        <div class="puzzle-input">
+                            <input type="text" placeholder="Enter solution" id="puzzle2-input">
+                            <button onclick="checkPuzzle(2)">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Additional Posts (Initially Locked) -->
+            <article class="post locked" id="post3">
+                <h2 class="glitch">The Machine Awakens</h2>
+                <div class="post-content">
+                    <p>Sunfall is alive. Not literally, of course, but its reactions are... peculiar.</p>
+                    <p>It's almost as though it decides whether to bend light or refuse it.</p>
+                    <div class="puzzle-section">
+                        <p class="puzzle-text">Decode this binary sequence:</p>
+                        <code>1100100 1101001 1100111 1100101 1101100</code>
+                        <div class="puzzle-input">
+                            <input type="text" placeholder="Enter solution" id="puzzle3-input">
+                            <button onclick="checkPuzzle(3)">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post locked" id="post4">
+                <h2 class="glitch">A Warning</h2>
+                <div class="post-content">
+                    <p>Not all light is meant to be reshaped.</p>
+                    <p>Sometimes, darkness pushes back.</p>
+                    <div class="puzzle-section">
+                        <p class="puzzle-text">Decrypt (Key: 5):</p>
+                        <code>RZXY IJHWDUY NSYT</code>
+                        <div class="puzzle-input">
+                            <input type="text" placeholder="Enter solution" id="puzzle4-input">
+                            <button onclick="checkPuzzle(4)">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="post locked" id="post5">
+                <h2 class="glitch">Fragmented Thoughts</h2>
+                <div class="post-content">
+                    <p>I can't keep track anymore. Sunfall is... it's doing things I didn't expect.</p>
+                    <p>There are whispers in the data.</p>
+                    <p>This will be my final entry. Find me, but beware of what you'll uncover.</p>
+                    <div class="puzzle-section">
+                        <p class="puzzle-text">Two encrypted messages remain:</p>
+                        <code>VVNFUjogQU5ZQQ==</code>
+                        <code>UEFTU1dPUkQ6IFBVRVJP</code>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="js/effects.js"></script>
+    <script src="js/posts.js"></script>
+</body>
+</html> 

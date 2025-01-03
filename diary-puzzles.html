@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Sunfall - Personal Files</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/diary.css">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="research.html">Archives</a></li>
+            <li><a href="login-challenge.html" class="login-btn glitch">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="puzzle-container">
+        <header class="diary-header">
+            <h1 class="glitch" data-text="Personal Files">Personal Files</h1>
+            <p class="subtitle">Recovered Data Fragments</p>
+        </header>
+
+        <section class="puzzle active" id="puzzle1">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Audio Fragment #1">Audio Fragment #1</h2>
+                <p class="puzzle-desc">Hidden in the frequencies lies a date...</p>
+                
+                <div class="audio-player">
+                    <audio id="audio1" preload="auto">
+                        <source src="assets/audio/static_pattern.wav" type="audio/wav">
+                    </audio>
+                    <div class="player-controls">
+                        <button class="play-btn">
+                            <span class="play-icon">▶</span>
+                        </button>
+                        <div class="progress-bar">
+                            <div class="progress"></div>
+                        </div>
+                        <span class="time-display">00:00</span>
+                    </div>
+                </div>
+
+                <div class="puzzle-input">
+                    <div class="input-group">
+                        <label>Enter the hidden date:</label>
+                        <input type="text" 
+                               id="puzzle1-input" 
+                               placeholder="YYYY-MM-DD"
+                               pattern="\d{4}-\d{2}-\d{2}"
+                               maxlength="10">
+                        <button class="submit-btn" onclick="checkPuzzle(1)">Decrypt</button>
+                    </div>
+                    <div class="hint">Hint: Use a frequency analyzer to reveal the pattern</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="puzzle" id="puzzle2">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Memory Fragment #2">Memory Fragment #2</h2>
+                <p class="puzzle-desc">A voice echoes through time... What album does this reflection come from?</p>
+                
+                <div class="audio-container glitch-player">
+                    <div class="custom-player">
+                        <div class="player-display">
+                            <div class="time-current">00:00</div>
+                            <div class="track-name">FRAGMENT_K137.wav</div>
+                            <div class="time-total">00:00</div>
+                        </div>
+                        
+                        <div class="player-controls">
+                            <button class="control-btn play-btn" data-audio="kendrick">
+                                <span class="btn-icon">▶</span>
+                            </button>
+                            <div class="seek-bar">
+                                <div class="seek-fill"></div>
+                                <div class="seek-handle"></div>
+                            </div>
+                        </div>
+
+                        <div class="visualizer distorted">
+                            <canvas id="kendrickVisualizer"></canvas>
+                        </div>
+                    </div>
+
+                    <audio id="kendrickAudio" src="assets/audio/kendrick_fragment.wav"></audio>
+                    
+                    <div class="glitch-effects">
+                        <div class="scan-line"></div>
+                        <div class="noise"></div>
+                    </div>
+                </div>
+
+                <div class="puzzle-input">
+                    <div class="input-group">
+                        <label>Enter the album initials:</label>
+                        <input type="text" 
+                               id="puzzle2-input" 
+                               placeholder="????"
+                               maxlength="4">
+                        <button class="submit-btn" onclick="checkPuzzle(2)">Decrypt</button>
+                    </div>
+                    <div class="hint">Hint: These words begin a journey To Pimp A...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="puzzle" id="puzzle3">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Video Fragment #3">Video Fragment #3</h2>
+                <p class="puzzle-desc">Recovered security footage... something moves in the dark.</p>
+                
+                <div class="video-container">
+                    <video id="securityFootage" class="security-video">
+                        <source src="assets/videos/spook.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <div class="timecode">00:00:00</div>
+                        <div class="rec-indicator">REC</div>
+                        <div class="camera-id">CAM_03</div>
+                    </div>
+                    <div class="video-controls">
+                        <button class="control-btn play">▶</button>
+                        <div class="timestamp-slider">
+                            <input type="range" min="0" max="100" value="0" class="video-progress">
+                            <div class="timestamp-markers">
+                                <span class="marker" data-time="15">|</span>
+                                <span class="marker" data-time="32">|</span>
+                                <span class="marker" data-time="47">|</span>
+                            </div>
+                        </div>
+                        <button class="control-btn frame-by-frame">⊳|</button>
+                    </div>
+                </div>
+
+                <div class="puzzle-input">
+                    <div class="input-group">
+                        <label>The hidden message is described in 4 ways.</label>
+                        <input type="text" 
+                               id="puzzle3-input" 
+                               placeholder="??????"
+                               maxlength="6">
+                        <button class="submit-btn" onclick="checkPuzzle(3)">Decrypt</button>
+                    </div>
+                    <div class="hint">Hint: Frame-by-frame reveals what the darkness hides...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="puzzle" id="puzzle4">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Terminal Fragment #4">Terminal Fragment #4</h2>
+                <p class="puzzle-desc">Access the system through the emergency backdoor...</p>
+                
+                <div class="terminal-container">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-title">EMERGENCY_ACCESS.SH</span>
+                            <div class="terminal-buttons">
+                                <span class="btn min">-</span>
+                                <span class="btn max">□</span>
+                                <span class="btn close">×</span>
+                            </div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="output-text"></div>
+                            <div class="input-line">
+                                <span class="prompt">$</span>
+                                <input type="text" class="terminal-input" spellcheck="false">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="puzzle-input">
+                    <div class="input-group">
+                        <label>Enter the override code:</label>
+                        <input type="text" 
+                               id="puzzle4-input" 
+                               placeholder="????????"
+                               maxlength="7">
+                        <button class="submit-btn" onclick="checkPuzzle(4)">Execute</button>
+                    </div>
+                    <div class="hint">Hint: The command sequence reveals the truth...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="puzzle" id="puzzle5">
+            <div class="puzzle-content">
+                <h2 class="glitch" data-text="Final Fragment #5">Final Fragment #5</h2>
+                <p class="puzzle-desc">A corrupted image holds the final truth...</p>
+                
+                <div class="image-analyzer">
+                    <div class="image-container">
+                        <div class="glitch-image">
+                            <div class="glitch-layers">
+                                <div class="layer base"></div>
+                                <div class="layer red"></div>
+                                <div class="layer green"></div>
+                                <div class="layer blue"></div>
+                                <div class="text-layer">
+                                    <span class="hidden-text">ENTER</span>
+                                    <span class="hidden-text">VOID</span>
+                                    <span class="hidden-text">NOW</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scan-overlay"></div>
+                        <div class="analysis-points">
+                            <div class="point" data-coord="137,42">+</div>
+                            <div class="point" data-coord="256,89">+</div>
+                            <div class="point" data-coord="78,165">+</div>
+                        </div>
+                    </div>
+                    <div class="analysis-tools">
+                        <div class="tool-buttons">
+                            <button class="tool-btn" data-tool="contrast">Contrast</button>
+                            <button class="tool-btn" data-tool="invert">Invert</button>
+                            <button class="tool-btn" data-tool="channels">RGB Split</button>
+                        </div>
+                        <div class="analysis-data">
+                            <span class="data-point">Coordinates: --,--</span>
+                            <span class="data-point">Color: #------</span>
+                            <span class="data-point">Pattern: ----</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="puzzle-input">
+                    <div class="input-group">
+                        <label>What does the image reveal?</label>
+                        <input type="text" 
+                               id="puzzle5-input" 
+                               placeholder="??????????????"
+                               maxlength="15">
+                        <button class="submit-btn" onclick="checkPuzzle(5)">Decrypt</button>
+                    </div>
+                    <div class="hint">Hint: The truth lies in the layers...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/effects.js"></script>
+    <script src="js/diary.js"></script>
+</body>
+</html> 

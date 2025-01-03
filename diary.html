@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anya's Research Log</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/diary.css">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+
+    <main class="diary-container">
+        <!-- Entry 1: The Beginning -->
+        <section class="diary-entry">
+            <div class="entry-header">
+                <h2>Research Log: Day 1</h2>
+                <span class="date">January 15, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>Another cold day in Novosibirsk. The lab feels different today - warmer, despite the Siberian winter outside. I've finally done it. The initial tests on the sunlight alteration device were successful. The way it breaks down pure solar radiation into its components is unlike anything I've seen before.</p>
+                <p>Father's lectures about excellence echo in my mind. This could be my chance to prove myself, to win the National Technological Advancement Competition. To finally break free from his shadow. Mother seems proud, though she's always been the gentler one, my refuge when Father's expectations become too heavy.</p>
+                <p>The possibilities are endless. Clean energy, enhanced agriculture, a chance to heal this broken world. I have to be careful though - such power needs to be handled responsibly.</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 1: Frequency Analysis -->
+        <div class="puzzle-block" id="puzzle1">
+            <div class="cipher-text">
+                MXVW EHJLQQLQJ WR XQGHUVWDQG WKH SRZHU
+                <div class="cipher-hint">The moon moves in cycles of three.</div>
+            </div>
+            <div class="input-group">
+                <label>Decode the warning:</label>
+                <input type="text" id="cipher1-input" maxlength="100">
+                <button onclick="checkCipher1()">Verify</button>
+            </div>
+        </div>
+
+        <!-- Entry 1.8: Unexpected Visit -->
+        <section class="diary-entry locked" id="entry2">
+            <div class="entry-header">
+                <h2>Personal Note</h2>
+                <span class="date">February 10, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>Something strange happened today. Two men in dark suits visited the lab. They didn't introduce themselves, but their posture screamed military. Mother seemed to know them - I caught a glimpse of her nodding to them in the hallway. When I asked her about it later, she brushed it off with a smile. "Just some old colleagues, dear. Nothing to worry about."</p>
+                <p>Later, I found one of my research journals out of place. Nothing seems to be missing, but... I'm going to start keeping more detailed records. Just in case.</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 2: Binary Pattern -->
+        <div class="puzzle-block locked" id="puzzle2">
+            <div class="binary-sequence">
+                01010100 01101000 01100101 00100000 01001011 01000111 01000010 00100000 01110111 01100001 01110100 01100011 01101000 01100101 01110011
+            </div>
+            <div class="input-group">
+                <label>What does the binary reveal?</label>
+                <input type="text" id="cipher2-input" maxlength="30">
+                <button onclick="checkCipher2()">Decode</button>
+            </div>
+        </div>
+
+        <!-- Entry 3: The Betrayal Begins -->
+        <section class="diary-entry locked" id="entry3">
+            <div class="entry-header">
+                <h2>Research Log: Day 127</h2>
+                <span class="date">March 15, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>Father took my project today. He says it's to show potential sponsors, but something doesn't feel right. The men who came with him wore no identification. Their questions weren't about clean energy or agricultural applications. They asked about weaponization potential.</p>
+                <p>I saw Mother's name on one of their documents. "Controller, KGB Information Division." How did I not know? All these years, her gentle presence, her comfort... was it all a facade?</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 3: Spectrogram -->
+        <div class="puzzle-block locked" id="puzzle3">
+            <div class="audio-player">
+                <audio id="audio1" preload="auto">
+                    <source src="assets/audio/puzzle3.wav" type="audio/wav">
+                </audio>
+                <div class="player-controls">
+                    <button class="play-btn">▶</button>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <span class="time-display">00:00</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>What message is hidden in the frequencies?</label>
+                <input type="text" id="cipher3-input" maxlength="20">
+                <button onclick="checkCipher3()">Decode</button>
+            </div>
+        </div>
+
+        <!-- Entry 4: The Truth Emerges -->
+        <section class="diary-entry distorted locked" id="entry4">
+            <div class="entry-header">
+                <h2>Personal Log</h2>
+                <span class="date">April 21, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>The news reports are getting worse. People disappearing in Oklahoma. Standing frozen like statues. My machine... they've corrupted it. Turned it into a weapon. I thought it was Father, but I was wrong. So wrong.</p>
+                <p class="glitch-text">Mother. It was Mother all along. The KGB's plan, Project Sunfall... she's the mastermind. When I confronted her, she didn't even deny it. "I did it for you, Anya. This world is broken beyond repair. This is the only way we can fix this, obedience."</p>
+                <p>How could she? My own mother... Who can I trust now?</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 4: Final Cipher -->
+        <div class="puzzle-block cipher-4 locked" id="puzzle4">
+            <div class="cipher-text">
+                JYFUENE SIYXRU PZXZ UEOBCC
+                <div class="cipher-hint">The key to this cipher is RESPECT</div>
+            </div>
+            <div class="input-group">
+                <label>Decode the message:</label>
+                <input type="text" id="cipher4-input" maxlength="35">
+                <button onclick="checkCipher4()">Decode</button>
+            </div>
+        </div>
+
+        <!-- Entry 5: Grandfather's Legacy -->
+        <section class="diary-entry locked" id="entry5">
+            <div class="entry-header">
+                <h2>Personal Note</h2>
+                <span class="date">March 25, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>Found an old photo of Grandfather in Father's office. He's standing in front of what looks like an early version of my radiation chamber. The date stamp says 1962 - Project DAWN. I searched the archives but found nothing. Every reference to Project DAWN has been redacted or removed. Did he discover something similar? Is that why he disappeared?</p>
+                <p>In the corner of the photo, there's a symbol I don't recognize. Mother caught me looking at it. For a moment, her face... I've never seen her look so cold. "Some mysteries should stay buried, Anya. For everyone's safety."</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 5: Symbol Pattern -->
+        <div class="puzzle-block locked" id="puzzle5">
+            <div class="symbol-grid">
+                <div class="symbol">☀◐◑●</div>
+                <div class="hint">Decode the phases to reveal Project DAWN's truth</div>
+            </div>
+            <div class="input-group">
+                <label>What does the sequence reveal?</label>
+                <input type="text" id="symbol-input" maxlength="20">
+                <button onclick="checkSymbolPattern()">Decode</button>
+            </div>
+        </div>
+
+        <!-- Entry 6: Strange Occurrences -->
+        <section class="diary-entry locked" id="entry6">
+            <div class="entry-header">
+                <h2>Research Log: Day 135</h2>
+                <span class="date">March 23, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>The night guard disappeared today. Just... vanished during his shift. The official report says he deserted his post, but his coffee was still warm, his logbook open mid-entry. The security footage for that hour is mysteriously corrupted. When I tried to access it, I found Mother already there in the security office. She claimed to be "handling the situation."</p>
+                <p>I'm starting to see patterns in the test data that don't make sense. The radiation signatures... they're not just affecting plant growth anymore. There are anomalies in the wavelength patterns that seem to resonate with neural tissue. Did they modify my design? What aren't they telling me?</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 6: Wavelength Pattern -->
+        <div class="puzzle-block locked" id="puzzle6">
+            <div class="wave-pattern">
+                ~~~λ₁~~~λ₂~~~λ₃~~~
+                <div class="pattern-hint">Find the anomaly in the sequence: 2.3, 4.7, ?, 9.5</div>
+            </div>
+            <div class="input-group">
+                <label>Enter the missing wavelength:</label>
+                <input type="text" id="wave-input" maxlength="3">
+                <button onclick="checkWavePattern()">Analyze</button>
+            </div>
+        </div>
+
+        <!-- Entry 7: The Warning -->
+        <section class="diary-entry locked" id="entry7">
+            <div class="entry-header">
+                <h2>Research Log: Day 138</h2>
+                <span class="date">March 28, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>A strange encounter in the lab today. One of the cleaning staff - an old woman I've never seen before - grabbed my arm as I was leaving. Her eyes were wild with fear. She whispered: "Your mother's light brings darkness. Just like before. Just like your grandfather." Before I could ask what she meant, security arrived. They escorted her out. Mother said she was "confused" and would be "taken care of."</p>
+                <p>Later, I found a note in my coat pocket. Coordinates and a single word: "Solstice." The handwriting... it looks like Grandfather's from the old photo.</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 7: Coordinate Cipher -->
+        <div class="puzzle-block locked" id="puzzle7">
+            <div class="coordinate-cipher">
+                <div class="text">35°N 97°W → 55°N 83°E</div>
+                <div class="hint">Follow the path of light</div>
+            </div>
+            <div class="input-group">
+                <label>What lies between these points?</label>
+                <input type="text" id="coord-input" maxlength="25">
+                <button onclick="checkCoordinates()">Track</button>
+            </div>
+        </div>
+
+        <!-- Entry 8: The Test -->
+        <section class="diary-entry locked" id="entry8">
+            <div class="entry-header">
+                <h2>Research Log: Day 140</h2>
+                <span class="date">March 30, 1983</span>
+            </div>
+            <div class="entry-content">
+                <p>They ran an "authorized test" today without my knowledge or consent. The results were... disturbing. The lab rats in the radiation chamber didn't just show accelerated growth - their behavior changed. They became docile, almost robotic. Following simple commands without resistance. When I questioned this, Mother smiled that same cold smile: "Isn't it beautiful? Perfect harmony through perfect obedience."</p>
+                <p>I found more records. Project DAWN wasn't just about solar energy. Grandfather wasn't trying to harness the sun's power - he was trying to stop someone from weaponizing it. The same someone who now controls my research. I have to find out what happened to him. Before history repeats itself.</p>
+            </div>
+        </section>
+
+        <!-- Puzzle 8: Memory Fragment -->
+        <div class="puzzle-block locked" id="puzzle8">
+            <div class="memory-sequence">
+                <div class="fragment">19621015-DAWN-FAIL</div>
+                <div class="fragment">19830330-SUNFALL-INIT</div>
+                <div class="hint">Connect the dots across time</div>
+            </div>
+            <div class="input-group">
+                <label>What links these dates?</label>
+                <input type="text" id="memory-input" maxlength="30">
+                <button onclick="checkMemoryPattern()">Remember</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/diary.js"></script>
+</body>
+</html> 

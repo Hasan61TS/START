@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGB ARCHIVE: CLASSIFIED</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/video.css">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+    
+    <main class="video-container">
+        <div class="video-header">
+            <div class="timestamp">DATE: 04.15.1983 TIME: 23:47</div>
+            <div class="recording-status">REC ●</div>
+        </div>
+
+        <div class="video-content">
+            <div class="static-overlay"></div>
+            
+            <!-- Irina's Message -->
+            <section class="message-transcript">
+                <div class="interference-text">
+                    [SIGNAL INTERFERENCE DETECTED]
+                    [ATTEMPTING TO STABILIZE...]
+                    [SIGNAL LOCKED]
+                </div>
+
+                <div class="message-content">
+                    <p class="speaker">IRINA PAVLOVA - KGB INFORMATION DIVISION</p>
+                    
+                    <div class="hidden-data" data-cipher="base64">
+                        VGhlIHN1biBzZXRzIG9uIHRoZSBvbGQgd29ybGQ=
+                    </div>
+
+                    <p class="dialogue">My dearest Anya... [static interference] I knew this day would come. You've always been too curious for your own good. Just like your grandfather.</p>
+
+                    <div class="glitch-text">PROJECT SUNFALL STATUS: ACTIVE</div>
+
+                    <p class="dialogue">You think you're fighting for freedom? [laughs] Freedom is what brought us here. Wars, poverty, chaos - all products of humanity's precious freedom. But we can fix it. We can make it better.</p>
+
+                    <div class="hidden-coordinates">
+                        55°N 83°E → FACILITY PRIME
+                    </div>
+
+                    <p class="dialogue">Your machine... it's beautiful. Perfect. The way it breaks down sunlight, reshapes it... [static] We're not destroying consciousness, we're elevating it. Unity through compliance. Peace through order.</p>
+
+                    <div class="binary-message">
+                        01010100 01101000 01100101 00100000 01101011 01100101 01111001 00100000 01101001 01110011 00100000 01101001 01101110 00100000 01111001 01101111 01110101 01110010 00100000 01101110 01100001 01101101 01100101
+                    </div>
+
+                    <p class="dialogue">I've watched you grow, guided you, shaped you. Everything - your education, your interests, even your precious research competition - all carefully orchestrated. You were meant for this, Anya. To help us reshape humanity.</p>
+
+                    <div class="spectrogram-data">
+                        <!-- Hidden audio frequency pattern: "DAWN NEVER DIED" -->
+                        [AUDIO INTERFERENCE DETECTED]
+                    </div>
+
+                    <p class="dialogue">Your grandfather... [static increases] he didn't understand either. He tried to stop progress, just like you. But progress is inevitable. The world will change, with or without you.</p>
+
+                    <div class="morse-overlay">
+                        .-- .- - -.-. .... / - .... . / ... -.- -.--
+                    </div>
+
+                    <p class="dialogue">Join us, Anya. Stand with your mother. Together, we can build a perfect world. No more suffering, no more chaos. Just pure, beautiful order.</p>
+
+                    <div class="hidden-data" data-cipher="vigenere">
+                        QNVKGB VHAPYK WLZRVA
+                    </div>
+
+                    <p class="dialogue final-warning">Or stay with your misguided friends in Solstice. But remember - the sun sets on the old world, and Project Sunfall will bring the dawn of a new era. The choice is yours, my dear. Choose wisely.</p>
+                </div>
+
+                <div class="interference-text">
+                    [SIGNAL DEGRADING]
+                    [TRANSMISSION TERMINATED]
+                </div>
+            </section>
+
+            <!-- Hidden Puzzle Elements -->
+            <div class="puzzle-interface hidden">
+                <div class="input-group">
+                    <label>Decode the Message:</label>
+                    <input type="text" id="cipher-input" maxlength="30">
+                    <button onclick="checkMessageDecryption()">Verify</button>
+                </div>
+                
+                <div class="spectrogram-player">
+                    <audio id="hidden-audio" preload="auto">
+                        <source src="assets/audio/irina_message.wav" type="audio/wav">
+                    </audio>
+                    <button class="play-btn">▶</button>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-footer">
+            <div class="tracking-status">TRACKING: 3dB</div>
+            <div class="tape-counter">COUNTER: 1983</div>
+        </div>
+    </main>
+
+    <script src="js/video.js"></script>
+</body>
+</html> 

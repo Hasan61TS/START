@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Sunfall - Login</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vhs-overlay"></div>
+    <div class="noise-overlay"></div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li><a href="login-challenge.html" class="login-btn glitch">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <div class="login-container">
+            <h1 class="glitch" data-text="Project Access">Project Access</h1>
+            <div class="login-form">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Username" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" autocomplete="off">
+                </div>
+                <button onclick="attemptLogin()" class="login-button">Access</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/effects.js"></script>
+    <script>
+        // Check if user completed all challenges
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('loginEnabled') !== 'true') {
+                window.location.href = 'posts.html';
+                return;
+            }
+        });
+
+        function attemptLogin() {
+            const username = document.getElementById('username').value.toUpperCase();
+            const password = document.getElementById('password').value.toUpperCase();
+
+            if (username === 'ANYA' && password === 'PUERO') {
+                // Success! Add glitch effect
+                document.body.classList.add('major-glitch');
+                
+                // Show success message
+                const successDiv = document.createElement('div');
+                successDiv.className = 'error-message success';
+                successDiv.textContent = 'Access granted. Welcome back, Anya.';
+                document.querySelector('.container').appendChild(successDiv);
+                
+                // Store login state
+                localStorage.setItem('userLoggedIn', 'true');
+                
+                // Redirect after delay
+                setTimeout(() => {
+                    window.location.href = 'research.html'; // Next page after successful login
+                }, 2000);
+            } else {
+                // Show error with glitch effect
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = 'Access denied. Invalid credentials.';
+                document.querySelector('.container').appendChild(errorDiv);
+                
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html> 
